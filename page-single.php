@@ -1,16 +1,15 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+/**
+ * 单栏页面模板
+ *
+ * @package custom
+ */
+?>
 <?php $this->need('header.php'); ?>
 
 <header class="inner-header">
     <div class="inner-header__main">
-        <figure class="post-thumb">
-            <?php if(get_postthumb($this)): ?>
-                <img src="<?php echo get_postthumb($this) ?>">
-            <?php else: ?>
-                <img src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>">
-            <?php endif; ?>
-        </figure>
-        <div class="post-info">
+        <div class="post-info post-info-s">
             <h1 class="post-info__title"><?php $this->title() ?></h1>
             <div class="post-info__meta">
                 <div class="post-info__meta--author">
@@ -34,8 +33,7 @@
 
 <section class="post">
     <div class="post__wrap">
-        <div id="post-nav" class="post-menu"></div>
-        <div class="post-main">
+        <div class="post-main post-main-s">
             <div id="post-main-section" class="article-content">
                 <?php $this->content(); ?>
             </div>

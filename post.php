@@ -36,8 +36,8 @@
     </div>
 </header>
 
-<section class="content">
-    <div class="content__wrap">
+<section class="post">
+    <div class="post__wrap">
         <div id="post-nav" class="post-menu"></div>
         <div class="post-main">
             <div class="post-main__tags">

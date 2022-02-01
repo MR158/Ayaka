@@ -1266,14 +1266,14 @@ footer a:hover {
   font-size: 14px;
 }
 
-.content__wrap {
+.post__wrap {
   width: 1024px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   position: relative;
 }
-.content__wrap .post-menu {
+.post__wrap .post-menu {
   width: 300px;
   top: 150px;
   flex: 0 0 300px;
@@ -1282,11 +1282,11 @@ footer a:hover {
   align-items: flex-end;
   position: absolute;
 }
-.content__wrap .post-menu__title {
+.post__wrap .post-menu__title {
   font-size: 16px;
   text-align: right;
 }
-.content__wrap .post-menu__nav {
+.post__wrap .post-menu__nav {
   margin: 20px 20px 0 0;
   display: flex;
   flex-direction: column;
@@ -1296,18 +1296,18 @@ footer a:hover {
   padding: 20px 25px;
   color: #999;
 }
-.content__wrap .post-menu__nav .post-nav-item {
+.post__wrap .post-menu__nav .post-nav-item {
   position: relative;
   font-size: 14px;
   cursor: pointer;
 }
-.content__wrap .post-menu__nav .post-nav-item:not(:nth-child(1)) {
+.post__wrap .post-menu__nav .post-nav-item:not(:nth-child(1)) {
   margin-top: 20px;
 }
-.content__wrap .post-menu__nav .post-nav-item:hover {
+.post__wrap .post-menu__nav .post-nav-item:hover {
   color: #339BFF;
 }
-.content__wrap .post-menu__nav .post-nav-item::before {
+.post__wrap .post-menu__nav .post-nav-item::before {
   content: "";
   position: absolute;
   width: 12px;
@@ -1327,85 +1327,85 @@ footer a:hover {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-.content__wrap .post-menu__nav .post-nav-item__1 {
+.post__wrap .post-menu__nav .post-nav-item__1 {
   font-size: 16px;
   color: #363636;
 }
-.content__wrap .post-menu__nav .post-nav-item__1::before {
+.post__wrap .post-menu__nav .post-nav-item__1::before {
   width: 12px;
   height: 12px;
   right: -33px;
 }
-.content__wrap .post-menu__nav .post-nav-item__2 {
+.post__wrap .post-menu__nav .post-nav-item__2 {
   font-size: 15px;
   color: #4a4a4a;
 }
-.content__wrap .post-menu__nav .post-nav-item__2::before {
+.post__wrap .post-menu__nav .post-nav-item__2::before {
   width: 10px;
   height: 10px;
   right: -32px;
 }
-.content__wrap .post-menu__nav .post-nav-item__3 {
+.post__wrap .post-menu__nav .post-nav-item__3 {
   color: #5c5c5c;
 }
-.content__wrap .post-menu__nav .post-nav-item__3::before {
+.post__wrap .post-menu__nav .post-nav-item__3::before {
   width: 8px;
   height: 8px;
   right: -31px;
 }
-.content__wrap .post-menu__nav .post-nav-item__4 {
+.post__wrap .post-menu__nav .post-nav-item__4 {
   font-size: 13px;
   color: #6f6f6f;
 }
-.content__wrap .post-menu__nav .post-nav-item__4::before {
+.post__wrap .post-menu__nav .post-nav-item__4::before {
   width: 6px;
   height: 6px;
   right: -30px;
 }
-.content__wrap .post-menu__nav .post-nav-item__5 {
+.post__wrap .post-menu__nav .post-nav-item__5 {
   font-size: 12px;
   color: #828282;
 }
-.content__wrap .post-menu__nav .post-nav-item__5::before {
+.post__wrap .post-menu__nav .post-nav-item__5::before {
   width: 4px;
   height: 4px;
   right: -29px;
 }
-.content__wrap .post-menu__nav .post-nav-item__6 {
+.post__wrap .post-menu__nav .post-nav-item__6 {
   font-size: 12px;
   color: #999;
 }
-.content__wrap .post-menu__nav .post-nav-item__6::before {
+.post__wrap .post-menu__nav .post-nav-item__6::before {
   width: 3px;
   height: 3px;
   right: -29px;
 }
-.content__wrap .post-menu__nav .post-nav-item__current {
+.post__wrap .post-menu__nav .post-nav-item__current {
   color: #339BFF;
 }
-.content__wrap .post-menu__nav .post-nav-item__current::before {
+.post__wrap .post-menu__nav .post-nav-item__current::before {
   border-color: #339BFF;
 }
-.content__wrap .post-menu__nav .post-nav-item__hidden {
+.post__wrap .post-menu__nav .post-nav-item__hidden {
   display: none;
 }
-.content__wrap .post-menu__fixed {
+.post__wrap .post-menu__fixed {
   position: fixed;
   margin-top: 0;
   top: 120px;
 }
-.content__wrap .post-main {
+.post__wrap .post-main {
   width: 100%;
   margin-top: 30px;
   padding-left: 330px;
   box-sizing: border-box;
 }
-.content__wrap .post-main__tags {
+.post__wrap .post-main__tags {
   display: flex;
   flex-wrap: wrap;
   font-size: 14px;
 }
-.content__wrap .post-main__tags > * {
+.post__wrap .post-main__tags > * {
   margin: 0 10px 10px 0;
   padding: 6px 10px;
   -moz-border-radius: 5px;
@@ -1734,6 +1734,14 @@ footer a:hover {
 .not-found__main--desc {
   font-weight: 300;
   color: #666;
+}
+
+.inner-header__main .post-info-s {
+  left: 0;
+}
+
+.post__wrap .post-main-s {
+  padding-left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
