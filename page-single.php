@@ -23,8 +23,8 @@
             </div>
         </div>
     </div>
-    <?php if(get_postthumb($this)): ?>
-    <div class="inner-header__bg top-bg" style="background-image:url(<?php echo get_postthumb($this) ?>)">
+    <?php if(Service::get_postthumb($this)): ?>
+    <div class="inner-header__bg top-bg" style="background-image:url(<?php echo Service::get_postthumb($this) ?>)">
     <?php else: ?>
     <div class="inner-header__bg top-bg" style="background-image:url(<?php $this->options->themeUrl('/img/default_bg.jpg'); ?>)">
     <?php endif; ?>

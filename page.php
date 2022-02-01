@@ -4,8 +4,8 @@
 <header class="inner-header">
     <div class="inner-header__main">
         <figure class="post-thumb">
-            <?php if(get_postthumb($this)): ?>
-                <img src="<?php echo get_postthumb($this) ?>">
+            <?php if(Service::get_postthumb($this)): ?>
+                <img src="<?php echo Service::get_postthumb($this) ?>">
             <?php else: ?>
                 <img src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>">
             <?php endif; ?>
@@ -24,8 +24,8 @@
             </div>
         </div>
     </div>
-    <?php if(get_postthumb($this)): ?>
-    <div class="inner-header__bg top-bg" style="background-image:url(<?php echo get_postthumb($this) ?>)">
+    <?php if(Service::get_postthumb($this)): ?>
+    <div class="inner-header__bg top-bg" style="background-image:url(<?php echo Service::get_postthumb($this) ?>)">
     <?php else: ?>
     <div class="inner-header__bg top-bg" style="background-image:url(<?php $this->options->themeUrl('/img/default_bg.jpg'); ?>)">
     <?php endif; ?>

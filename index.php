@@ -67,8 +67,8 @@ $this->need('header.php');?>
                 <article class="post-item ayaka-block">
                     <figure class="post-item__thumb">
                         <a href="<?php $this->permalink() ?>">
-                            <?php if(get_postthumb($this)): ?>
-                                <img src="<?php echo get_postthumb($this) ?>" alt="<?php $this->title() ?>">
+                            <?php if(Service::get_postthumb($this)): ?>
+                                <img src="<?php echo Service::get_postthumb($this) ?>" alt="<?php $this->title() ?>">
                             <?php else: ?>
                                 <img src="<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>" alt="<?php $this->title() ?>">
                             <?php endif; ?>
