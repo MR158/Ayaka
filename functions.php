@@ -71,7 +71,7 @@ class Service {
                 <span class="sc-link__name">{$content}</span>
                 <span class="sc-link__title">{$args['title']}</span>
             </a>
-        EOF;
+EOF;
     }
 
     /**
