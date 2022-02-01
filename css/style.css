@@ -1176,17 +1176,17 @@ footer a:hover {
   .content {
     margin-top: 50px;
   }
-  .content__main {
+  .content__wrap {
     width: 100%;
   }
-  .content__main .post-list-wrap {
+  .content__wrap .post-list-wrap {
     width: 90%;
   }
-  .content__main .post-list-wrap .post-list .post-item {
+  .content__wrap .post-list-wrap .post-list .post-item {
     height: auto;
     flex-direction: column;
   }
-  .content__main .post-list-wrap .post-list .post-item__thumb {
+  .content__wrap .post-list-wrap .post-list .post-item__thumb {
     width: 100%;
     flex: 0 0 100%;
     height: 180px;
@@ -1458,18 +1458,18 @@ footer a:hover {
     font-size: 12px;
   }
 
-  .main__wrap {
+  .post__wrap {
     width: 90%;
   }
-  .main__wrap .post-menu {
+  .post__wrap .post-menu {
     display: none;
   }
-  .main__wrap .post-main {
+  .post__wrap .post-main {
     width: 100%;
     padding-left: 0;
     margin-top: 20px;
   }
-  .main__wrap .post-main__tags > * {
+  .post__wrap .post-main__tags > * {
     margin: 0 5px 5px 0;
     padding: 4px 8px;
     font-size: 12px;
