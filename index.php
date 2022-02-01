@@ -60,7 +60,7 @@ $this->need('header.php');?>
 </section>
 
 <section class="content">
-    <div class="content__main">
+    <div class="content__wrap">
         <section class="post-list-wrap">
             <section class="post-list">
             <?php while($this->next()): ?>
