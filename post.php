@@ -14,7 +14,11 @@
             <h1 class="post-info__title"><?php $this->title() ?></h1>
             <div class="post-info__meta">
                 <div class="post-info__meta--author">
-                    <img class="author-avatar" src="<?php $this->options->logoUrl() ?>">
+                    <?php if($this->options->logoUrl): ?>
+                        <img class="author-avatar" src="<?php $this->options->logoUrl() ?>">
+                    <?php else: ?>
+                        <img class="author-avatar" src="<?php $this->options->themeUrl('/img/default_avatar.jpg');?>">
+                    <?php endif; ?>
                     <a class="author-name" href="<?php $this->author->permalink(); ?>"><?php $this->author() ?></a>
                 </div>
                 <div class="post-info__meta--time">

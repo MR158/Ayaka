@@ -5,7 +5,7 @@
         <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
     </p>
     <p>
-        Theme by <a target="_blank" href="#">Ayaka</a>.
+        Theme by <a target="_blank" href="https://mr158.cn/archives/theme-ayaka.html">Ayaka</a>.
     </p>
 </footer>
 </main>
