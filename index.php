@@ -4,7 +4,7 @@
  * 
  * @package Ayaka
  * @author MR158
- * @version 1.0.5
+ * @version 1.0.6
  * @link https://mr158.cn
  */
 
