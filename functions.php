@@ -64,12 +64,16 @@ class Service {
         $args = shortcode_atts( array(
             'href' => '#',
             'target' => '_blank',
-            'title' => ''
+            'title' => '',
+            'avatar' => Helper::options()->themeUrl .'/img/default_avatar.jpg'
         ), $atts );
         return <<<EOF
             <a class="sc-link" href="{$args['href']}" target="{$args['target']}">
-                <span class="sc-link__name">{$content}</span>
-                <span class="sc-link__title">{$args['title']}</span>
+                <img class="sc-link__avatar" src="{$args['avatar']}" />
+                <div class="sc-link__info">
+                    <h4 class="sc-link__info--name">{$content}</h4>
+                    <p title="{$args['title']}" class="sc-link__info--title">{$args['title']}</p>
+                </div>
             </a>
 EOF;
     }
