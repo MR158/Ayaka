@@ -50,7 +50,7 @@
             <?php endwhile; ?>
         </ul>
     </nav>
-    <div id="loading" class="loading" style="display: <?php echo $this->options->swLoading ? 'block' : 'none' ?>">
+    <div id="loading" class="loading" style="display: <?php echo $this->options->swLoading === "able" ? 'block' : 'none' ?>">
         <div class="loading__box"></div>
     </div>
     <main>

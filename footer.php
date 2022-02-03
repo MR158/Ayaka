@@ -20,7 +20,7 @@
 	<script src="<?php $this->options->themeUrl('js/main.js'); ?>?v<?php echo AYAKA_VERSION ?>"></script>
     <script data-no-instant src="https://cdnjs.cloudflare.com/ajax/libs/instantclick/3.0.1/instantclick.min.js"></script>
     <script data-no-instant>
-        var SW_LOADING = <?php echo $this->options->swLoading ? "true" : "false" ?>
+        var SW_LOADING = <?php echo $this->options->swLoading === "able" ? "true" : "false" ?>
 
         InstantClick.on('change', function (isInit) {
             if(SW_LOADING && !isInit) pageLoading.active = true
