@@ -17,11 +17,15 @@
 <?php $this->footer(); ?>
 	<!-- <script src="<?php $this->options->themeUrl('js/jquery.pjax.js'); ?>" data-no-instant></script> -->
 	<script src="<?php $this->options->themeUrl('js/prism.js'); ?>"></script>
-	<script src="<?php $this->options->themeUrl('js/main.js'); ?>?v1.0.7"></script>
+	<script src="<?php $this->options->themeUrl('js/main.js'); ?>?v<?php echo AYAKA_VERSION ?>"></script>
     <script data-no-instant src="https://cdnjs.cloudflare.com/ajax/libs/instantclick/3.0.1/instantclick.min.js"></script>
     <script data-no-instant>
-        InstantClick.on('change', function () {
+        var SW_LOADING = <?php echo $this->options->swLoading ? "true" : "false" ?>
+
+        InstantClick.on('change', function (isInit) {
+            if(SW_LOADING && !isInit) pageLoading.active = true
             init()
+            if(SW_LOADING) pageLoading.active = false
         })
         InstantClick.init('mousedown');
     </script>

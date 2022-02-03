@@ -1,4 +1,21 @@
-var SP_HEIGHT = 768
+var SP_WIDTH = 768
+
+var pageLoading = {
+    timer: null,
+    delay: 300,
+    set active (status) {
+        var el = document.querySelector('#loading')
+        if (!status) {
+            el.style.opacity = 0
+            this.timer = setTimeout(function () {
+                el.style.display = 'none'
+            }.bind(this), this.delay)
+        } else {
+            el.style.display = 'block'
+            el.style.opacity = 1
+        }
+    }
+}
 
 /**
  * 初始化
@@ -21,7 +38,7 @@ var init = function () {
     }
 
     // 手机端顶部导航按钮
-    if(window.screen.width < SP_HEIGHT) {
+    if(window.screen.width < SP_WIDTH) {
         var mainBlock = document.querySelector('main')
         var topNavActBtn = document.querySelector('.top-nav-sp__btn')
         var topNavRealBtn = topNavActBtn.querySelector('.top-nav-btn')
@@ -92,7 +109,7 @@ var init = function () {
  */
 var postNavItemsInit = function (postText, postNav) {
     if (!postText) return []
-    var navNodes = Array.from(postText.querySelectorAll('h1,h2,h3,h4,h5,h6'))
+    var navNodes = Array.from(postText.querySelectorAll('h1,h2,h3'))
     if(!navNodes.length) return []
 
     var titleNode, postMenuNav
@@ -159,7 +176,7 @@ var postNavItemsInit = function (postText, postNav) {
     }
 }
 var topNavSpScrollEvent = function () {
-    if (window.screen.width < SP_HEIGHT) {
+    if (window.screen.width < SP_WIDTH) {
         if (win.scrollTop > this.bannerHeight) {
             this.el.classList.add(this.changeClsName)
         } else {

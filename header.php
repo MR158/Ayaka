@@ -14,8 +14,8 @@
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="shortcut icon" href="<?php $this->options->themeUrl('favicon.ico'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/prism.css'); ?>?v1.0.7">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>?v1.0.7">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/prism.css'); ?>?v<?php echo AYAKA_VERSION ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>?v<?php echo AYAKA_VERSION ?>">
     <?php $this->header(); ?>
 </head>
 <body>
@@ -50,4 +50,7 @@
             <?php endwhile; ?>
         </ul>
     </nav>
+    <div id="loading" class="loading" style="display: <?php echo $this->options->swLoading ? 'block' : 'none' ?>">
+        <div class="loading__box"></div>
+    </div>
     <main>

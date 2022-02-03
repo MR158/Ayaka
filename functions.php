@@ -17,6 +17,12 @@ function themeConfig($form) {
     $form->addInput($socialGithubUrl);
     $socialEmail = new Typecho_Widget_Helper_Form_Element_Text('socialEmail', NULL, NULL, _t('Email'), _t('填写Email以展示联系方式'));
     $form->addInput($socialEmail);
+    $swLoading = new Typecho_Widget_Helper_Form_Element_Radio('swLoading',
+        array('able' => _t('启用'),
+            'disable' => _t('禁止'),
+        ),
+        'disable', _t('页面Loading效果'), _t('默认禁止'));
+    $form->addInput($swLoading);
 }
 
 class Service {
