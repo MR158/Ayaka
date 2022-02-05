@@ -68,11 +68,19 @@ $this->need('header.php');?>
                 <article class="post-item ayaka-block">
                     <figure class="post-item__thumb">
                         <a href="<?php $this->permalink() ?>">
+                            <div class="post-loading lazy-load-placeholder">
+                                <div class="post-loading__1"></div>
+                                <div class="post-loading__2"></div>
+                                <div class="post-loading__3"></div>
+                            </div>
+                            <img src="<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>"
                             <?php if(Service::get_postthumb($this)): ?>
-                                <img src="<?php echo Service::get_postthumb($this) ?>" alt="<?php $this->title() ?>">
+                                 data-src="<?php echo Service::get_postthumb($this) ?>"
                             <?php else: ?>
-                                <img src="<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>" alt="<?php $this->title() ?>">
+                                 data-src="<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>" 
                             <?php endif; ?>
+                                 alt="<?php $this->title() ?>"
+                                 class="lazy-load">
                         </a>
                     </figure>
                     <div class="post-item__info">

@@ -57,6 +57,14 @@ var init = function () {
         }
     }
 
+    // 图片懒加载
+    var lazyImages = Array.from(document.querySelectorAll('.lazy-load')).map(function(imgEle) {
+        return {
+            el: imgEle,
+            scrollTop: imgEle.getBoundingClientRect().top + win.scrollTop
+        }
+    }) 
+
     // 数据
     var Model = {
         winObj: {
@@ -80,6 +88,10 @@ var init = function () {
             toTop: {
                 el: toTop,
                 handler: toTopEvent
+            },
+            lazyLoad: {
+                el: lazyImages,
+                handler: lazyLoadEvent
             }
         }
     }
@@ -185,11 +197,33 @@ var topNavSpScrollEvent = function () {
     }
 }
 
+/**
+ * 返回顶部处理
+ */
 var toTopEvent = function () {
     if (win.scrollTop > window.screen.height * 0.66) {
         this.el.style.right = "5%"
     } else {
         this.el.style.right = "-60px"
+    }
+}
+
+/**
+ * 图片懒加载处理
+ */
+var lazyLoadEvent = function () {
+    this.el.forEach(function (lazyImage) {
+        if (win.scrollTop > lazyImage.scrollTop - window.screen.height * 1.5) {
+            lazyLoadImage(lazyImage.el)
+        }
+    }) 
+}
+var lazyLoadImage = function (image) {
+    if (!image.getAttribute('data-src')) return
+    image.setAttribute('src', image.getAttribute('data-src'))
+    image.onload = function () {
+        image.removeAttribute('data-src')
+        image.parentElement.querySelector('.lazy-load-placeholder').remove()
     }
 }
 
