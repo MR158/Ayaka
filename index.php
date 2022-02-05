@@ -9,7 +9,6 @@
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-define('AYAKA_VERSION', "1.0.8");
 $this->need('header.php');?>
 <header class="index-header">
     <div class="index-header__bg top-bg" style="background-image:url(<?php $this->options->themeUrl('/img/default_bg.jpg'); ?>)"></div>

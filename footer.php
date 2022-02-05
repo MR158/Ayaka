@@ -17,7 +17,7 @@
 <?php $this->footer(); ?>
 	<!-- <script src="<?php $this->options->themeUrl('js/jquery.pjax.js'); ?>" data-no-instant></script> -->
 	<script src="<?php $this->options->themeUrl('js/prism.js'); ?>"></script>
-	<script src="<?php $this->options->themeUrl('js/main.js'); ?>?v<?php echo AYAKA_VERSION ?>"></script>
+	<script src="<?php $this->options->themeUrl('js/main.js'); ?>?v1.0.8"></script>
     <script data-no-instant src="https://cdnjs.cloudflare.com/ajax/libs/instantclick/3.0.1/instantclick.min.js"></script>
     <script data-no-instant>
         var SW_LOADING = <?php echo $this->options->swLoading === "able" ? "true" : "false" ?>
