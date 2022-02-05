@@ -29,5 +29,10 @@
         })
         InstantClick.init('mousedown');
     </script>
+    <?php if ($this->options->analytics): ?>
+    <script data-no-instant>
+        <?php $this->options->analytics();?>
+    </script>
+    <?php endif; ?>
 </body>
 </html>

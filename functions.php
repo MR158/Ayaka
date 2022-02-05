@@ -23,6 +23,8 @@ function themeConfig($form) {
         ),
         'disable', _t('页面Loading效果'), _t('默认禁止'));
     $form->addInput($swLoading);
+    $analytics = new Typecho_Widget_Helper_Form_Element_Textarea('analytics', NULL, NULL, _t('站点统计代码'), _t('填写你获取到的站点统计跟踪代码，不需要script标签'));
+    $form->addInput($analytics);
 }
 
 class Service {
