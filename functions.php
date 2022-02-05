@@ -45,9 +45,15 @@ class Service {
      * 图片懒加载
      */
     public static function set_lazyload($content) {
+        $preg = '#<img(.*?) class="(.*?)" (.*?)>#';
+        $replace = '<img$1 class="lazy-load $2" $3>';
+        $content = preg_replace($preg, $replace, $content);
+
         $preg = '#<img(.*?) src="(.*?)" (.*?)>#';
         $replace = '<img$1 src="'. Helper::options()->themeUrl .'/img/default_lazy.gif' .'" data-src="$2" class="lazy-load" $3>';
-        return preg_replace($preg, $replace, $content);
+        $content = preg_replace($preg, $replace, $content);
+
+        return $content;
     }
 
     /**
