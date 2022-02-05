@@ -58,9 +58,10 @@ var init = function () {
     }
 
     // 图片懒加载
-    var lazyImages = Array.from(document.querySelectorAll('.lazy-load')).map(function(imgEle) {
+    var lazyImages = Array.from(document.querySelectorAll('.lazy-load')).map(function(imgEle, idx) {
         return {
             el: imgEle,
+            loaded: false,
             scrollTop: imgEle.getBoundingClientRect().top + win.scrollTop
         }
     }) 
@@ -214,16 +215,23 @@ var toTopEvent = function () {
 var lazyLoadEvent = function () {
     this.el.forEach(function (lazyImage) {
         if (win.scrollTop > lazyImage.scrollTop - window.screen.height * 1.5) {
-            lazyLoadImage(lazyImage.el)
+            lazyLoadImage(lazyImage)
         }
     }) 
 }
-var lazyLoadImage = function (image) {
+var lazyLoadImage = function (lazyImage) {
+    var image = lazyImage.el
     if (!image.getAttribute('data-src')) return
+    if (lazyImage.loaded) return
     image.setAttribute('src', image.getAttribute('data-src'))
     image.onload = function () {
         image.removeAttribute('data-src')
-        image.parentElement.querySelector('.lazy-load-placeholder').remove()
+        var placeholder = image.parentElement.querySelector('.lazy-load-placeholder')
+        placeholder && placeholder.remove()
+        lazyImage.loaded = true
+    }
+    image.onerror = function () {
+        lazyImage.loaded = true
     }
 }
 

@@ -42,6 +42,15 @@ class Service {
     }
 
     /**
+     * 图片懒加载
+     */
+    public static function set_lazyload($content) {
+        $preg = '#<img(.*?) src="(.*?)" (.*?)>#';
+        $replace = '<img$1 src="'. Helper::options()->themeUrl .'/img/default_lazy.gif' .'" data-src="$2" class="lazy-load" $3>';
+        return preg_replace($preg, $replace, $content);
+    }
+
+    /**
      * 短代码 - 友情链接
      */
     public static function shortcode_friends( $atts, $content = '' ) {
@@ -92,7 +101,6 @@ EOF;
         if ($widget instanceof Widget_Abstract) {
             add_shortcode( 'link' , 'Service::shortcode_link' );
             add_shortcode( 'friends', 'Service::shortcode_friends' );
-
             $content = do_shortcode($content);
         }
         return $content;

@@ -4,11 +4,18 @@
 <header class="inner-header">
     <div class="inner-header__main">
         <figure class="post-thumb">
+            <div class="post-loading lazy-load-placeholder">
+                <div class="post-loading__1"></div>
+                <div class="post-loading__2"></div>
+                <div class="post-loading__3"></div>
+            </div>
+            <img src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>" 
             <?php if(Service::get_postthumb($this)): ?>
-                <img src="<?php echo Service::get_postthumb($this) ?>">
+                data-src="<?php echo Service::get_postthumb($this) ?>"
             <?php else: ?>
-                <img src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>">
+                data-src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>"
             <?php endif; ?>
+                class="lazy-load">
         </figure>
         <div class="post-info">
             <h1 class="post-info__title"><?php $this->title() ?></h1>
@@ -55,7 +62,7 @@
                 <?php endforeach; ?>
             </div>
             <div id="post-main-section" class="article-content">
-                <?php $this->content(); ?>
+                <?php echo Service::set_lazyload($this->content); ?>
             </div>
             <ul class="post-near">
                 <li>
