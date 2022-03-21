@@ -11,7 +11,11 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');?>
 <header class="index-header">
+    <?php if($this->options->bannerBGUrl): ?>
+    <div class="index-header__bg top-bg" style="background-image:url(<?php echo $this->options->bannerBGUrl; ?>)"></div>
+    <?php else: ?>
     <div class="index-header__bg top-bg" style="background-image:url(<?php $this->options->themeUrl('/img/default_bg.jpg'); ?>)"></div>
+    <?php endif; ?>
     <div class="index-header__waves top-waves">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
