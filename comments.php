@@ -12,7 +12,7 @@
     $commentLevelClass = $comments->_levels > 0 ? ' comment-child' : ' comment-parent';  //评论层数大于0为子级，否则是父级
 ?>
  
-<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php
+<li id="<?php $comments->theId(); ?>" class="comment-body<?php
 if ($comments->levels > 0) {
     echo ' comment-child';
     $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
@@ -38,7 +38,7 @@ echo $commentClass;
                     
                     <time datetime="<?php $comments->date('c'); ?>"><?php $comments->date('Y年m月d日 H:i'); ?></time>
                 </div>
-                <div class="comment-reply">
+                <div class="comment-reply" data-no-instant>
                     <?php $comments->reply(); ?>
                 </div>
             </div>
@@ -108,4 +108,85 @@ echo $commentClass;
     </div>
     
     <?php endif; ?>
+
+<script>
+(function () {
+    // TypechoComment
+    var commentFunction = document.head.querySelector('script[type]')
+    if (commentFunction) {
+        var innerHTML = commentFunction.innerHTML
+        // 已预加载
+        if (innerHTML && innerHTML.match(/this.dom\('respond-.*?'\)/ig)) {
+            var after = innerHTML.replace(/this.dom\('respond-.*?'\)/ig, "this.dom('respond-<?php $this->is('post') ? print_r('post') : print_r('page') ?>-<?php $this->cid() ?>')")
+            setTimeout(function() {
+                eval(after)
+            })
+            return
+        }
+    }
+    // 添加TypechoComment
+    var script = document.createElement('script')
+    script.setAttribute('type', 'text/javascript')
+    script.innerHTML = `
+(function () {
+    window.TypechoComment = {
+        dom : function (id) {
+            return document.getElementById(id);
+        },
+        create : function (tag, attr) {
+            var el = document.createElement(tag);
+            for (var key in attr) {
+                el.setAttribute(key, attr[key]);
+            }
+            return el;
+        },
+        reply : function (cid, coid) {
+            var comment = this.dom(cid), parent = comment.parentNode,
+                response = this.dom('respond-<?php $this->is('post') ? print_r('post') : print_r('page') ?>-<?php $this->cid() ?>'), input = this.dom('comment-parent'),
+                form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0],
+                textarea = response.getElementsByTagName('textarea')[0];
+            if (null == input) {
+                input = this.create('input', {
+                    'type' : 'hidden',
+                    'name' : 'parent',
+                    'id'   : 'comment-parent'
+                });
+                form.appendChild(input);
+            }
+            input.setAttribute('value', coid);
+            if (null == this.dom('comment-form-place-holder')) {
+                var holder = this.create('div', {
+                    'id' : 'comment-form-place-holder'
+                });
+                response.parentNode.insertBefore(holder, response);
+            }
+            comment.appendChild(response);
+            this.dom('cancel-comment-reply-link').style.display = '';
+            if (null != textarea && 'text' == textarea.name) {
+                textarea.focus();
+            }
+            return false;
+        },
+        cancelReply : function () {
+            var response = this.dom('respond-<?php $this->is('post') ? print_r('post') : print_r('page') ?>-<?php $this->cid() ?>'),
+            holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent');
+            if (null != input) {
+                input.parentNode.removeChild(input);
+            }
+            if (null == holder) {
+                return true;
+            }
+            this.dom('cancel-comment-reply-link').style.display = 'none';
+            holder.parentNode.insertBefore(response, holder);
+            return false;
+        }
+    }
+})()
+`
+    document.head.insertBefore(script, commentFunction)
+    setTimeout(function() {
+        eval(script.innerHTML)
+    })
+})()
+</script>
 </div>

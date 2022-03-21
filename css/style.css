@@ -751,11 +751,13 @@ input, textarea {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 8px 16px;
+  padding: 14px 16px;
   border: 1px solid #eaeaea;
   font-size: 14px;
   color: #444;
   font-weight: normal;
+  font-family: "STHeiti Light", "Microsoft YaHei", "SimHei", "Microsoft JhengHei", "Microsoft YaHei", "Mirages Custom", "Merriweather", "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Segoe UI Emoji", "Segoe UI Symbol", Helvetica, Arial, sans-serif;
+  font-weight: 300;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
@@ -2017,6 +2019,7 @@ footer a:hover {
   height: 35px;
   line-height: 35px;
   border: none;
+  background-color: transparent;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -2034,7 +2037,7 @@ footer a:hover {
   border-radius: 50%;
 }
 #comments .respond {
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 #comments .respond .reply-title {
   display: flex;
