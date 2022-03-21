@@ -1,6 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
+<?php $imgrand = rand(); ?>
 <header class="inner-header">
     <div class="inner-header__main">
         <figure class="post-thumb">
@@ -12,6 +13,8 @@
             <img src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>" 
             <?php if(Service::get_postthumb($this)): ?>
                 data-src="<?php echo Service::get_postthumb($this) ?>"
+            <?php elseif($this->options->postImgUrl): ?>
+                data-src="<?php echo $this->options->postImgUrl ?>?rand=<?php echo $imgrand;?>"
             <?php else: ?>
                 data-src="<?php $this->options->themeUrl('img/default_thumb.jpg'); ?>"
             <?php endif; ?>
@@ -37,6 +40,8 @@
     </div>
     <?php if(Service::get_postthumb($this)): ?>
     <div class="inner-header__bg top-bg" style="background-image:url(<?php echo Service::get_postthumb($this) ?>)">
+    <?php elseif($this->options->postImgUrl): ?>
+    <div class="inner-header__bg top-bg" style="background-image:url(<?php echo $this->options->postImgUrl; ?>?rand=<?php echo $imgrand;?>)">
     <?php else: ?>
     <div class="inner-header__bg top-bg" style="background-image:url(<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>)">
     <?php endif; ?>

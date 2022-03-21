@@ -93,6 +93,8 @@ $this->need('header.php');?>
                             <img src="<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>"
                             <?php if(Service::get_postthumb($this)): ?>
                                  data-src="<?php echo Service::get_postthumb($this) ?>"
+                            <?php elseif($this->options->postImgUrl): ?>
+                                 data-src="<?php echo $this->options->postImgUrl ?>?rand=<?php echo rand();?>"
                             <?php else: ?>
                                  data-src="<?php $this->options->themeUrl('/img/default_thumb.jpg'); ?>" 
                             <?php endif; ?>

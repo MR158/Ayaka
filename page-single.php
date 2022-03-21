@@ -7,6 +7,7 @@
 ?>
 <?php $this->need('header.php'); ?>
 
+<?php $imgrand = rand(); ?>
 <header class="inner-header">
     <div class="inner-header__main">
         <div class="post-info post-info-s">
@@ -25,6 +26,8 @@
     </div>
     <?php if(Service::get_postthumb($this)): ?>
     <div class="inner-header__bg top-bg" style="background-image:url(<?php echo Service::get_postthumb($this) ?>)">
+    <?php elseif($this->options->postImgUrl): ?>
+    <div class="inner-header__bg top-bg" style="background-image:url(<?php echo $this->options->postImgUrl ?>?rand=<?php echo $imgrand;?>)">
     <?php else: ?>
     <div class="inner-header__bg top-bg" style="background-image:url(<?php $this->options->themeUrl('/img/default_bg.jpg'); ?>)">
     <?php endif; ?>

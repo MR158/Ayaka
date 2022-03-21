@@ -11,6 +11,8 @@ function themeConfig($form) {
     $form->addInput($logoUrl);
     $bannerBGUrl = new Typecho_Widget_Helper_Form_Element_Text('bannerBGUrl', NULL, NULL, _t('首页头图地址'), _t('在这里填入一个图片的URL地址, 以在网站显示你的首页头图'));
     $form->addInput($bannerBGUrl);
+    $postImgUrl = new Typecho_Widget_Helper_Form_Element_Text('postImgUrl', NULL, NULL, _t('文章默认特色图地址'), _t('在这里填入一个图片的URL地址, 以显示你的文章统一默认头图<br />* 文章指定了自定义字段thumbnail时该文章会应用自定义字段中的地址'));
+    $form->addInput($postImgUrl);
     $socialQQ = new Typecho_Widget_Helper_Form_Element_Text('socialQQ', NULL, NULL, _t('QQ号'), _t('填写QQ号以展示联系方式'));
     $form->addInput($socialQQ);
     $socialGithubUrl = new Typecho_Widget_Helper_Form_Element_Text('socialGithubUrl', NULL, NULL, _t('Github地址'), _t('填写Github地址以展示联系方式'));
