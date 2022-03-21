@@ -51,8 +51,8 @@
 <section class="post">
     <div class="post__wrap">
         <div class="post-main post-main-s">
-            <div id="post-main-section" class="article-content">
-                <?php $this->content(); ?>
+            <div id="post-main-section" class="article-content line-numbers">
+                <?php echo Service::set_lazyload($this->content); ?>
             </div>
             <?php $this->need('comments.php'); ?>
         </div>

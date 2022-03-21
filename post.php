@@ -80,7 +80,7 @@
                 </a>
                 <?php endforeach; ?>
             </div>
-            <div id="post-main-section" class="article-content">
+            <div id="post-main-section" class="article-content line-numbers">
                 <?php echo Service::set_lazyload($this->content); ?>
             </div>
             <ul class="post-near">
