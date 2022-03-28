@@ -21,12 +21,28 @@
 <body>
     <nav id="top-nav-pc" class="top-nav-pc">
         <ul>
-            <li<?php if($this->is('index')): ?> class="current"<?php endif; ?>>
+            <li class="top-nav-pc__item" <?php if($this->is('index')): ?> class="current"<?php endif; ?>>
                 <a href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
             </li>
+            <?php $this->widget('Widget_Metas_Category_List')->to($cats); ?>
+            <?php if($cats->have()): ?>
+            <li class="top-nav-pc__item top-nav-pc__drop-down">
+                <span>分类<i class="iconfont icon-angle-down"></i></span>
+                <ul class="top-nav-pc__drop-down--menu">
+                    <i class="iconfont icon-up-dir"></i>
+                    <?php while($cats->next()): ?>
+                    <li <?php if($this->is('category', $cats->slug)): ?> class="current"<?php endif; ?>>
+                        <a href="<?php $cats->permalink(); ?>" title="<?php $cats->name(); ?>">
+                            <?php $cats->name(); ?>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
+            </li>
+            <?php endif; ?>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?>
-            <li <?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?>>
+            <li class="top-nav-pc__item" <?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?>>
                 <a href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
             </li>
             <?php endwhile; ?>
@@ -41,6 +57,18 @@
         <ul class="top-nav-sp__drawer">
             <li<?php if($this->is('index')): ?> class="current"<?php endif; ?>>
                 <a href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
+            </li>
+            <li class="top-nav-sp__item top-nav-sp__drop-down">
+                <span>分类</span>
+                <ul class="top-nav-sp__drop-down--menu">
+                    <?php while($cats->next()): ?>
+                    <li <?php if($this->is('category', $cats->slug)): ?> class="current"<?php endif; ?>>
+                        <a href="<?php $cats->permalink(); ?>" title="<?php $cats->name(); ?>">
+                            <?php $cats->name(); ?>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
             </li>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?>
