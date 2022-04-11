@@ -831,6 +831,10 @@ img {
 }
 .top-nav-pc ul .top-nav-pc__drop-down span {
   color: #fff;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .top-nav-pc ul .top-nav-pc__drop-down span .icon-angle-down {
   -moz-transition: all 0.3s;
@@ -903,6 +907,9 @@ img {
 }
 .top-nav-pc__fixed ul .current a {
   color: #339BFF;
+}
+.top-nav-pc__fixed ul .top-nav-pc__drop-down span {
+  color: #666;
 }
 
 .top-nav-sp {
