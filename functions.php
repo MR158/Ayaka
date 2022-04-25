@@ -27,6 +27,8 @@ function themeConfig($form) {
     $form->addInput($swLoading);
     $analytics = new Typecho_Widget_Helper_Form_Element_Textarea('analytics', NULL, NULL, _t('站点统计代码'), _t('填写你获取到的站点统计跟踪代码，不需要script标签'));
     $form->addInput($analytics);
+    $customJS = new Typecho_Widget_Helper_Form_Element_Textarea('customJS', NULL, NULL, _t('自定义JS代码'), _t('填写在这里的JS代码会在页面切换时也进行加载'));
+    $form->addInput($customJS);
 }
 
 class Service {
